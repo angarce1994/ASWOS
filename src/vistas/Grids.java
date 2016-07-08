@@ -6,6 +6,7 @@
 package vistas;
 
 
+import Modelo.Aswos;
 import Modelo.Fuente;
 import java.awt.Canvas;
 import java.awt.Color;
@@ -45,6 +46,7 @@ class GridsCanvas extends Canvas {
  public void cargarImagen(){
      try {
          image = ImageIO.read(getClass().getClassLoader().getResource("altavoces-rectangulares-con-el-bajo_318-43650.png"));
+         System.out.println("Si cargo");
      } catch (Exception e) {
          System.out.println("no cargo por: " + e);
      }
@@ -53,7 +55,7 @@ class GridsCanvas extends Canvas {
      for(int i=0; i<fuentes.size();i++){
         double[] posicion = fuentes.get(i).getPosicion();
         g.drawImage(image, (int) posicion[0], (int) posicion[1], null);
-        repaint();
+        //repaint();
         //g.setColor(Color.red);
         //g.drawOval((int)posicion[0], (int)posicion[1],10 ,10);
          System.out.println(image);
@@ -79,6 +81,17 @@ class GridsCanvas extends Canvas {
     g.setColor(Color.BLACK);
     for (i = 0; i < cols; i++)    
       g.drawLine(i * rowWid, 0, i * rowWid, height);
+    try{
+        ArrayList<Fuente> fuentes = Aswos.getAswos().getSimulacion().getEscenario().getFuentes();
+        if (fuentes != null){
+            for(int j=0; j<fuentes.size();j++){
+                g.drawImage(image, (int) (fuentes.get(j).getPosicion())[0], (int) (fuentes.get(j).getPosicion())[1], null);
+            }
+            
+        }
+    }
+    catch(Exception e){}
+  g.drawImage(image, (int) 2, (int) 2, null);  
     this.g = g;
   }
 }
@@ -112,6 +125,6 @@ public class Grids extends Frame {
   public static void main(String[] a) {
     int h = 38*5;
     int w = h;
-    new Grids("Test", w, h, 1, 1).setVisible(true);
+    new Grids("Test", w, h, 10, 10).setVisible(true);
   }
 }

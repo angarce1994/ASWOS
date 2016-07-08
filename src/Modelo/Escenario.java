@@ -19,7 +19,7 @@ public class Escenario {
     private int resolucion;
     private Image imagen;
     private ArrayList<Fuente> fuentes;
-    private double frecuencia;
+    private int frecuencia; //índice 
 
     public Escenario(double[] area) {
         this.area = area;
@@ -45,6 +45,13 @@ public class Escenario {
 
     public void setArea(double[] area) {
         this.area = area;
+    }
+    public int getFrecuencia() {
+        return frecuencia;
+    }
+
+    public void setFrecuencia(int frecuencia) {
+        this.frecuencia = frecuencia;
     }
 
     public Color getColor() {

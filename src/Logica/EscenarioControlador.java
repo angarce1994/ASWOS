@@ -28,41 +28,7 @@ public class EscenarioControlador {
        return Math.rint(TotalPunto);
     }
     
-    public static double hallarsensibilidad(int frec){
-        ArrayList<Fuente> fuentes =Aswos.getAswos().getSimulacion().getEscenario().getFuentes();
-        switch (frec){ 
-                case 0:
-                    //double sensibilidadfinal=esc.ge
-                    break;
-                case 1:
-                    
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-                case 6:
-                    break;
-                case 7:
-                    break;
-                case 8:
-                    break;
-                case 9:
-                    break;
-                case 10:
-                    break;
-                case 11:
-                    break;
-                case 12:
-                    break;
-                       
-        }
-        return frec;
-    }
+   
     
     public static void main(String[] args) {
         double[] posicionFuente = {2,3};

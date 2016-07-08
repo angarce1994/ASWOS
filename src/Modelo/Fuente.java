@@ -24,10 +24,14 @@ public class Fuente {
         this.potencia = potencia;
         this.nombre = nombre;
         this.posicion = posicion;
-        this.splmax= FuenteControlador.splmax(this);
+        
     }
     public double getSplMax(){
         return splmax;
+    }
+    
+     public void  setSplMax(double splmax){
+        this.splmax=splmax;
     }
 
     public double[] getSensibilidad(){

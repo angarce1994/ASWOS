@@ -1,6 +1,7 @@
 package vistas;
 
 import Logica.EscenarioControlador;
+import Logica.FuenteControlador;
 import Modelo.Aswos;
 import Modelo.Escenario;
 import Modelo.Fuente;
@@ -44,7 +45,7 @@ public class intDATOS extends javax.swing.JFrame {
         double[] area = new double[2];
         area[0] = width-38;
         area[1] = heig-200;
-        gridCanvas = new GridsCanvas((int)area[0], (int)area[1], 1, 1);
+        gridCanvas = new GridsCanvas((int)area[0], (int)area[1], 10, 10);
         panelCanvas.add(gridCanvas);
         System.out.println(heig);
         System.out.println(width);
@@ -413,7 +414,13 @@ public class intDATOS extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         int frec = freq.getSelectedIndex();
-        double Sensibilidad = EscenarioControlador.hallarsensibilidad(frec);
+        Aswos.getAswos().getSimulacion().getEscenario().setFrecuencia(frec);
+        ArrayList<Fuente> fuentes= Aswos.getAswos().getSimulacion().getEscenario().getFuentes();
+        
+        for(int i=0;i<fuentes.size();i++){
+            fuentes.get(i).setSplMax(FuenteControlador.splmax(fuentes.get(i)));
+        }
+        gridCanvas.painComponent(fuentes);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void abrirarchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirarchivoActionPerformed

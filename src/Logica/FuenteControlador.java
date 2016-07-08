@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Logica;
+import Modelo.Aswos;
 import Modelo.Fuente;
 import Modelo.Simulacion;
 import vistas.CaracteristicasFuente;
@@ -16,10 +17,10 @@ import vistas.CaracteristicasFuente;
 public class FuenteControlador {
     //Frecuencia frec=new Frecuencia;
     public static double splmax(Fuente f1){
-        
+        int frec=Aswos.getAswos().getSimulacion().getEscenario().getFrecuencia();
         double[] sensibilidad = f1.getSensibilidad();
         double potencia = f1.getPotencia();
-        return Math.rint(sensibilidad[1]+(10*Math.log10(potencia))*1000/1000);
+        return Math.rint(sensibilidad[frec]+(10*Math.log10(potencia))*1000/1000);
     }
     
     public static double  distanciamax(Fuente f1, double[] punto){
