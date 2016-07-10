@@ -13,6 +13,7 @@ import java.awt.Label;
 import java.util.Arrays;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -230,6 +231,19 @@ public class CaracteristicasSimulacion extends javax.swing.JDialog {
     }
     
     private void OKcaractSimulacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKcaractSimulacionActionPerformed
+        if (txtVelocidad.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Ingrese la Velocidad"," Error",JOptionPane.ERROR_MESSAGE);
+        }
+        else if (txtTemperatura.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Ingrese la Temperatura"," Error",JOptionPane.ERROR_MESSAGE);
+        }
+        else if (txtLargo.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Ingrese el Largo del recinto"," Error",JOptionPane.ERROR_MESSAGE);
+        }
+        else if (txtAncho.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Ingrese el Ancho del recinto"," Error",JOptionPane.ERROR_MESSAGE);
+        }
+        else {
         double velocidad = Double.parseDouble(txtVelocidad.getText());
         double temperatura = Double.parseDouble(txtTemperatura.getText());
         double ancho = Double.parseDouble(txtAncho.getText());
@@ -249,8 +263,9 @@ public class CaracteristicasSimulacion extends javax.swing.JDialog {
         resultados= "<html> Area escenario: "+ areatotal + " m^2 " + "<br> Velocidad del Sonido : " + sim.getVelocidad() + " m/s " +
                 "<br> Temperatura: " + sim.getTemperatura() + " ºC ";
        padre.lblInfo.setText(resultados);
+       
     }//GEN-LAST:event_OKcaractSimulacionActionPerformed
-
+    }
     private void txtVelocidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVelocidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtVelocidadActionPerformed
