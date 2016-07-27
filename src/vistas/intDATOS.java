@@ -24,35 +24,41 @@ import sun.net.www.content.image.gif;
  * @author GUERRERO-PC
  */
 public class intDATOS extends javax.swing.JFrame {
-
-    GridsCanvas gridCanvas;
+    int heig;
+    int width;
+    double[] area = new double[2];
+    //GridsCanvas gridCanvas;
     private Dimension dim;
     /**
      * 
      * Creates new form intDATOS
      */
     public intDATOS() {
-        initComponents();
-        dim=super.getToolkit().getScreenSize();
-        int heig=getToolkit().getScreenSize().height ;
-        int width=getToolkit().getScreenSize().width ;
         
-        super.setSize(dim);
+        heig=getToolkit().getScreenSize().height ;
+        width=getToolkit().getScreenSize().width ;
+        
+        
         
         //super.setUndecorated(true);
         //super.setVisible(true);        
         
-        double[] area = new double[2];
+        
         area[0] = width-38;
         area[1] = heig-200;
-        gridCanvas = new GridsCanvas((int)area[0], (int)area[1], 10, 10);
-        panelCanvas.add(gridCanvas);
-        System.out.println(heig);
-        System.out.println(width);
+        //gridCanvas = new GridsCanvas((int)area[0], (int)area[1], 10, 10);
+        //panelCanvas.add(gridCanvas);
+        
+        initComponents();
+        dim=super.getToolkit().getScreenSize();
+        super.setSize(dim);
     }
     
-    public void modificarCanvas(ArrayList<Fuente> fuentes){
-        gridCanvas.painComponent(fuentes);
+    public void modificarCanvasFuentes(){
+        panelEscenario.repaint();
+    }
+    public void modeficarCanvasEscenario(){
+        panelEscenario.repaint();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,7 +69,7 @@ public class intDATOS extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        freq = new javax.swing.JComboBox<>();
+        freq = new javax.swing.JComboBox<String>();
         nuevafuente = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -73,8 +79,8 @@ public class intDATOS extends javax.swing.JFrame {
         PanelDatos = new javax.swing.JPanel();
         lblDatos = new javax.swing.JLabel();
         lblInfo = new javax.swing.JLabel();
-        panelCanvas = new javax.swing.JPanel();
         nuevafuente1 = new javax.swing.JButton();
+        panelEscenario = new vistas.panelEscenario((int)area[0], (int)area[1], 10, 10);
         jMenuBar1 = new javax.swing.JMenuBar();
         archivo = new javax.swing.JMenu();
         nuevoarchivo = new javax.swing.JMenuItem();
@@ -115,7 +121,7 @@ public class intDATOS extends javax.swing.JFrame {
         setIconImages(getIconImages());
         setResizable(false);
 
-        freq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "20 Hz", "25 Hz", "31.5 Hz", "40 Hz", "50 Hz", "63 Hz", "80 Hz", "100 Hz", "125Hz", "160 Hz", "200 Hz", "250 kHz" }));
+        freq.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20 Hz", "25 Hz", "31.5 Hz", "40 Hz", "50 Hz", "63 Hz", "80 Hz", "100 Hz", "125Hz", "160 Hz", "200 Hz", "250 kHz" }));
         freq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 freqActionPerformed(evt);
@@ -175,23 +181,25 @@ public class intDATOS extends javax.swing.JFrame {
 
         lblInfo.getAccessibleContext().setAccessibleName("lblInfo");
 
-        javax.swing.GroupLayout panelCanvasLayout = new javax.swing.GroupLayout(panelCanvas);
-        panelCanvas.setLayout(panelCanvasLayout);
-        panelCanvasLayout.setHorizontalGroup(
-            panelCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        panelCanvasLayout.setVerticalGroup(
-            panelCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
-        );
-
         nuevafuente1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevo.png"))); // NOI18N
         nuevafuente1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nuevafuente1ActionPerformed(evt);
             }
         });
+
+        panelEscenario.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout panelEscenarioLayout = new javax.swing.GroupLayout(panelEscenario);
+        panelEscenario.setLayout(panelEscenarioLayout);
+        panelEscenarioLayout.setHorizontalGroup(
+            panelEscenarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelEscenarioLayout.setVerticalGroup(
+            panelEscenarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 410, Short.MAX_VALUE)
+        );
 
         archivo.setText("Archivo");
 
@@ -367,27 +375,25 @@ public class intDATOS extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PanelDatos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(nuevafuente1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nuevafuente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(freq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(206, 206, 206)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(panelCanvas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(panelEscenario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(nuevafuente1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(nuevafuente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(freq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(206, 206, 206)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -402,9 +408,9 @@ public class intDATOS extends javax.swing.JFrame {
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(nuevafuente1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelCanvas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelEscenario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PanelDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -420,7 +426,7 @@ public class intDATOS extends javax.swing.JFrame {
         for(int i=0;i<fuentes.size();i++){
             fuentes.get(i).setSplMax(FuenteControlador.splmax(fuentes.get(i)));
         }
-        gridCanvas.painComponent(fuentes);
+        //gridCanvas.painComponent(fuentes);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void abrirarchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirarchivoActionPerformed
@@ -579,7 +585,7 @@ public class intDATOS extends javax.swing.JFrame {
     private javax.swing.JButton nuevafuente1;
     private javax.swing.JMenuItem nuevoarchivo;
     private javax.swing.JMenuItem paletaSPL;
-    public javax.swing.JPanel panelCanvas;
+    private vistas.panelEscenario panelEscenario;
     private javax.swing.JMenu preferencias;
     private javax.swing.JMenuItem reporte;
     private javax.swing.JMenuItem resoluciongrilla;

@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Documentos/GitHub/ASWOS/src/vistas/intDATOS.java</file>
-            <file>file:/D:/Documentos/GitHub/ASWOS/src/Modelo/Escenario.java</file>
-            <file>file:/D:/Documentos/GitHub/ASWOS/src/Modelo/Fuente.java</file>
-            <file>file:/D:/Documentos/GitHub/ASWOS/src/vistas/Grids.java</file>
-            <file>file:/D:/Documentos/GitHub/ASWOS/src/vistas/CaracteristicasFuente.java</file>
-            <file>file:/D:/Documentos/GitHub/ASWOS/src/Logica/FuenteControlador.java</file>
-            <file>file:/D:/Documentos/GitHub/ASWOS/src/Logica/EscenarioControlador.java</file>
+            <file>file:/C:/Users/Jhh/Documents/NetBeansProjects/ASWOS/ASWOS/src/vistas/CaracteristicasFuente.java</file>
+            <file>file:/C:/Users/Jhh/Documents/NetBeansProjects/ASWOS/ASWOS/src/vistas/panelEscenario.java</file>
+            <file>file:/C:/Users/Jhh/Documents/NetBeansProjects/ASWOS/ASWOS/src/vistas/CaracteristicasSimulacion.java</file>
+            <file>file:/C:/Users/Jhh/Documents/NetBeansProjects/ASWOS/ASWOS/src/vistas/intDATOS.java</file>
         </group>
     </open-files>
 </project-private>

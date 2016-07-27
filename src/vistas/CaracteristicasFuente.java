@@ -719,7 +719,7 @@ public class CaracteristicasFuente extends javax.swing.JDialog {
         
         
         padre.lblDatos.setText(resultados);
-        padre.modificarCanvas(Fuentes);
+        padre.modificarCanvasFuentes();
         
         }
     }//GEN-LAST:event_OKcaracteristicasfuenteActionPerformed
