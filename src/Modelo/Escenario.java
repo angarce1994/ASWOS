@@ -19,7 +19,8 @@ public class Escenario {
     private int resolucion;
     private Image imagen;
     private ArrayList<Fuente> fuentes;
-    private int frecuencia; //índice 
+    private int frecuencia;
+    private ArrayList<Coords> coordenadas;//índice 
 
     public Escenario(double[] area) {
         this.area = area;
@@ -36,6 +37,14 @@ public class Escenario {
 
     public void setFuentes(ArrayList<Fuente> fuentes) {
         this.fuentes = fuentes;
+    }
+
+    public ArrayList<Coords> getCoordenadas() {
+        return coordenadas;
+    }
+
+    public void setCoordenadas(ArrayList<Coords> coordenadas) {
+        this.coordenadas = coordenadas;
     }
 
     

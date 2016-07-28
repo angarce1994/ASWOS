@@ -38,20 +38,18 @@ public class intDATOS extends javax.swing.JFrame {
         heig=getToolkit().getScreenSize().height ;
         width=getToolkit().getScreenSize().width ;
         
-        
-        
-        //super.setUndecorated(true);
-        //super.setVisible(true);        
-        
-        
         area[0] = width-38;
         area[1] = heig-200;
-        //gridCanvas = new GridsCanvas((int)area[0], (int)area[1], 10, 10);
-        //panelCanvas.add(gridCanvas);
-        
         initComponents();
         dim=super.getToolkit().getScreenSize();
         super.setSize(dim);
+        
+        //crear escenario default
+        Escenario escenario = new Escenario(area);
+        escenario.setFuentes(new ArrayList<Fuente>());
+        Simulacion simulacion = new Simulacion(343, 20, escenario,100);
+        Aswos.getAswos(simulacion).setSimulacion(simulacion);
+
     }
     
     public void modificarCanvasFuentes(){

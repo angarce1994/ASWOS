@@ -56,32 +56,32 @@ public class panelEscenario extends javax.swing.JPanel {
         g.setColor(getForeground());
             int i;
     
-    // draw the rows
-    int rowHt = height / (rows);
-    g.setColor(Color.BLACK);
-    for (i = 0; i < rows; i++){
-     g.drawLine(0, i * rowHt, width, i * rowHt);
-    }
-    // draw the columns
-    int rowWid = width / (cols);
-    g.setColor(Color.BLACK);
-    
-    for (i = 0; i < cols; i++){    
-      g.drawLine(i * rowWid, 0, i * rowWid, height);
-    }
-    try{
-        ArrayList<Fuente> fuentes = Aswos.getAswos().getSimulacion().getEscenario().getFuentes();
-        if (fuentes != null){
-            for (Fuente fuente : fuentes) {
-                g.drawImage(image, (int) (fuente.getPosicion())[0], (int) (fuente.getPosicion())[1], null);
-            }
-            
+        // draw the rows
+        int rowHt = height / (rows);
+        g.setColor(Color.BLACK);
+        for (i = 0; i < rows; i++){
+         g.drawLine(0, i * rowHt, width, i * rowHt);
         }
-    }
-    catch(Exception e){
-        System.out.println("entro a catch " + e.toString());
-    }
-    
+        // draw the columns
+        int rowWid = width / (cols);
+        g.setColor(Color.BLACK);
+
+        for (i = 0; i < cols; i++){    
+          g.drawLine(i * rowWid, 0, i * rowWid, height);
+        }
+        try{
+            ArrayList<Fuente> fuentes = Aswos.getAswos().getSimulacion().getEscenario().getFuentes();
+            if (fuentes != null){
+                for (Fuente fuente : fuentes) {
+                    g.drawImage(image, (int) (fuente.getPosicion())[0], (int) (fuente.getPosicion())[1], null);
+                }
+
+            }
+        }
+        catch(Exception e){
+            System.out.println("entro a catch " + e.toString());
+        }
+
     }
     /**
      * This method is called from within the constructor to initialize the form.
