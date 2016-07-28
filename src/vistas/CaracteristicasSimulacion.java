@@ -7,12 +7,14 @@ package vistas;
 
 import Modelo.Aswos;
 import Modelo.Escenario;
+import Modelo.Fuente;
 import Modelo.Simulacion;
 import java.awt.Frame;
 import java.awt.Label;
 import java.util.Arrays;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -254,6 +256,7 @@ public class CaracteristicasSimulacion extends javax.swing.JDialog {
         area[1] = largo;
         this.hide();
         Escenario escenario = new Escenario(area);
+        escenario.setFuentes(new ArrayList<Fuente>());
         Simulacion simulacion = new Simulacion(velocidad, temperatura, escenario,valorfrec);
         Aswos.getAswos(simulacion).setSimulacion(simulacion);
         Simulacion sim = Aswos.getAswos(simulacion).getSimulacion();
@@ -263,7 +266,7 @@ public class CaracteristicasSimulacion extends javax.swing.JDialog {
         resultados= "<html> Area escenario: "+ areatotal + " m^2 " + "<br> Velocidad del Sonido : " + sim.getVelocidad() + " m/s " +
                 "<br> Temperatura: " + sim.getTemperatura() + " ºC ";
        padre.lblInfo.setText(resultados);
-       
+       padre.modeficarCanvasEscenario();
     }//GEN-LAST:event_OKcaractSimulacionActionPerformed
     }
     private void txtVelocidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVelocidadActionPerformed

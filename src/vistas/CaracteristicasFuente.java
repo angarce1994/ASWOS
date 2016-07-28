@@ -716,10 +716,8 @@ public class CaracteristicasFuente extends javax.swing.JDialog {
             numerofuente= i+1;
             resultados = resultados+ "<html> Fuente" +numerofuente +":  "+Fuentes.get(i).getNombre() + "<br> SPL: " + FuenteControlador.splmax(Fuentes.get(i))+" dB"+"<br>" ;
         }
-        
-        
         padre.lblDatos.setText(resultados);
-        padre.modificarCanvas(Fuentes);
+        padre.modificarCanvasFuentes();
         
         }
     }//GEN-LAST:event_OKcaracteristicasfuenteActionPerformed
