@@ -8,6 +8,7 @@ package Logica;
 import static Logica.FuenteControlador.SplTotal;
 import static Logica.FuenteControlador.distanciamax;
 import Modelo.Aswos;
+import Modelo.Coords;
 import Modelo.Escenario;
 import Modelo.Fuente;
 import java.util.ArrayList;
@@ -28,7 +29,44 @@ public class EscenarioControlador {
        return Math.rint(TotalPunto);
     }
     
-   
+   public static double matrixCoordenadas(double[] area){
+       
+       
+       int x = 0;
+       int y = 0;
+       
+           System.out.println(area[0]);   
+           System.out.println(area[1]);
+           for(int j=0 ; j < area[1] ; j++){
+               
+                for(int i=0 ; i < area[0] ; i++){
+                    x=(38*1)+x;
+                    if (x<area[0] && y<area[1]){
+                        Coords coor=new Coords(x, y);
+                        //Escenario esc = Aswos.getAswos().getSimulacion().getEscenario();
+                        //esc.getCoordenadas().add(coor);
+                        System.out.println(x+" , "+y);
+                    }
+                    if(x > area[0]){
+                        x=0;
+                        break;
+                        
+                        
+                    }
+                    
+                }
+                
+                
+                y=(38*1)+y;
+                if(y > area[1]){
+                        break;
+                    }
+                System.out.println(y);
+       
+            }
+               
+       return x;
+   }
     
     public static void main(String[] args) {
         double[] posicionFuente = {2,3};

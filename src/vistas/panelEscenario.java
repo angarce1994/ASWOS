@@ -18,7 +18,7 @@ import javax.imageio.ImageIO;
  *
  * @author Jhh
  */
-public class panelEscenario extends javax.swing.JPanel {
+public class PanelEscenario extends javax.swing.JPanel {
     int width, height;
  
     int rows;
@@ -31,7 +31,7 @@ public class panelEscenario extends javax.swing.JPanel {
     /**
      * Creates new form panelEscenario
      */
-    public panelEscenario(int w, int h, int r, int c) {
+    public PanelEscenario(int w, int h, int r, int c) {
         initComponents();
         setSize(width = w, height = h);
         rows = r;
